@@ -1,0 +1,3 @@
+We obtain land-use maps of the case study area from NIAES (GAEN-View, 2013). Due to confidentiality agreement, we cannot publicly share the data. Readers can contact the author of this paper (B.A.Jafino@tudelft.nl) to discuss about access to this data. 
+
+GAEN-View. (2013). Viewing System for Global Agriculture and Environment: Using HighFrequency Earth Observation Satellites. Retrieved from: http://gaenview.dc.affrc.go.jp
