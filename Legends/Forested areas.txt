@@ -1,0 +1,14 @@
+Version 2
+NClasses 4
+Palette
+255	255	255
+096	160	000
+192	192	000
+000	208	000
+StateOrderColor 0
+LegendType 0
+-
+Forest
+Deforestation
+Afforestation
+ShowUnit=1

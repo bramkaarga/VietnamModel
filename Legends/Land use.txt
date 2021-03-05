@@ -1,0 +1,26 @@
+Version 2
+NClasses 10
+Palette
+192	192	192
+087	255	192
+078	192	000
+255	255	000
+255	000	000
+000	000	000
+255	128	000
+000	192	255
+128	037	000
+000	070	255
+StateOrderColor 0
+LegendType 0
+Outside
+_Shrimp-rice farming_
+_Triple rice farming_
+_Double rice farming_
+_Single rice farming_
+_Urban_
+_Orchard plantation_
+_Aquaculture_
+Unclassified & extensive farming
+Sea lake river
+ShowUnit=1

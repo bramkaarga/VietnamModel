@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<maskcollection version="0">
+
+  <mask basemappath="region_boundaries_DTAG.tif" displayname="Regions" mergeregions="0">
+    <selectedregions>
+      <value value="0"/>
+      <value value="1"/>
+    </selectedregions>
+  </mask>
+
+</maskcollection>

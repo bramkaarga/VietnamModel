@@ -1,0 +1,14 @@
+Version 2
+NClasses 4
+Palette
+000	192	000
+255	255	000
+255	185	038
+192	000	000
+StateOrderColor 0
+LegendType 0
+Actively stimulated
+Allowed
+Weakly restricted
+Strictly restricted
+ShowUnit=1

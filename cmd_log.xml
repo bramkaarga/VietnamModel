@@ -1,0 +1,67 @@
+<LogMapSettings>
+	<Path>C:\Users\bjafino\surfdrive\InclusivePathwaysVietnam\Model_DTAG\model_coupled_v04_EF\Log_cmd</Path>
+	<Moments>
+		<vector>
+            <elem>2002-Jan-01 00:00:00</elem>
+            <elem>2003-Jan-01 00:00:00</elem>
+            <elem>2004-Jan-01 00:00:00</elem>
+            <elem>2005-Jan-01 00:00:00</elem>
+            <elem>2006-Jan-01 00:00:00</elem>
+            <elem>2007-Jan-01 00:00:00</elem>
+            <elem>2008-Jan-01 00:00:00</elem>
+            <elem>2009-Jan-01 00:00:00</elem>
+			<elem>2010-Jan-01 00:00:00</elem>
+            <elem>2011-Jan-01 00:00:00</elem>
+            <elem>2012-Jan-01 00:00:00</elem>
+            <elem>2013-Jan-01 00:00:00</elem>
+            <elem>2014-Jan-01 00:00:00</elem>
+            <elem>2015-Jan-01 00:00:00</elem>
+            <elem>2016-Jan-01 00:00:00</elem>
+            <elem>2017-Jan-01 00:00:00</elem>
+            <elem>2018-Jan-01 00:00:00</elem>
+            <elem>2019-Jan-01 00:00:00</elem>
+            <elem>2020-Jan-01 00:00:00</elem>
+            <elem>2021-Jan-01 00:00:00</elem>
+            <elem>2022-Jan-01 00:00:00</elem>
+            <elem>2023-Jan-01 00:00:00</elem>
+            <elem>2024-Jan-01 00:00:00</elem>
+            <elem>2025-Jan-01 00:00:00</elem>
+            <elem>2026-Jan-01 00:00:00</elem>
+            <elem>2027-Jan-01 00:00:00</elem>
+            <elem>2028-Jan-01 00:00:00</elem>
+            <elem>2029-Jan-01 00:00:00</elem>
+            <elem>2030-Jan-01 00:00:00</elem>
+            <elem>2031-Jan-01 00:00:00</elem>
+            <elem>2032-Jan-01 00:00:00</elem>
+            <elem>2033-Jan-01 00:00:00</elem>
+            <elem>2034-Jan-01 00:00:00</elem>
+            <elem>2035-Jan-01 00:00:00</elem>
+            <elem>2036-Jan-01 00:00:00</elem>
+            <elem>2037-Jan-01 00:00:00</elem>
+            <elem>2038-Jan-01 00:00:00</elem>
+            <elem>2039-Jan-01 00:00:00</elem>
+            <elem>2040-Jan-01 00:00:00</elem>
+            <elem>2041-Jan-01 00:00:00</elem>
+            <elem>2042-Jan-01 00:00:00</elem>
+            <elem>2043-Jan-01 00:00:00</elem>
+            <elem>2044-Jan-01 00:00:00</elem>
+            <elem>2045-Jan-01 00:00:00</elem>
+            <elem>2046-Jan-01 00:00:00</elem>
+            <elem>2047-Jan-01 00:00:00</elem>
+            <elem>2048-Jan-01 00:00:00</elem>
+            <elem>2049-Jan-01 00:00:00</elem>
+            <elem>2050-Jan-01 00:00:00</elem>
+            <elem>2051-Jan-01 00:00:00</elem>
+		</vector>
+	</Moments>
+	<RasterMapFormat>.asc</RasterMapFormat>
+	<Maps>
+		<modelBlock name="Land_use">
+			<MapID>
+				<Name>LanduseMap</Name>
+				<Index>-1</Index>
+				<Time>not-a-date-time</Time>
+			</MapID>
+		</modelBlock>
+	</Maps>
+</LogMapSettings>

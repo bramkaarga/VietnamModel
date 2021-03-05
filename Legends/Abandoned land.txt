@@ -1,0 +1,12 @@
+Version 2
+NClasses 3
+Palette
+255	255	255
+192	000	000
+192	192	000
+StateOrderColor 0
+LegendType 0
+-
+Occupied land
+Abandoned land
+ShowUnit=1

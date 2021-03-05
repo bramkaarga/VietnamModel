@@ -1,0 +1,23 @@
+Version 2
+NClasses 5
+Palette
+192	255	000
+144	208	000
+096	160	000
+048	112	000
+000	064	000
+StateOrderColor 0
+LegendType 1
+Decimals 1
+DisplayMin 0
+DisplayMax 30
+StateLabel 4
+StateOrder 1
+StateScale 1
+0	1
+1	2.5
+2.5	7.5
+7.5	15
+15	30
+Unit=km
+ShowUnit=1

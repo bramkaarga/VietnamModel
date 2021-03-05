@@ -1,0 +1,33 @@
+Version 2
+NClasses 7
+Palette
+005	000	000
+005	000	000
+005	000	000
+005	000	000
+005	000	000
+005	000	000
+005	000	000
+StateOrderColor 0
+LegendType 1
+Decimals 1
+DisplayMin 0
+DisplayMax 1
+StateLabel 3
+1: National highway
+2: province road
+3: residential road
+4: main river
+5: distribution channels/canal
+6: provincial capital city
+7: big cities
+StateOrder 1
+StateScale 1
+1	1
+2	2
+3	3
+4	4
+5	5
+6	6
+7	7
+ShowUnit=1

@@ -1,0 +1,10 @@
+Version 2
+NClasses 2
+Palette
+255	255	255
+000	000	240
+StateOrderColor 0
+LegendType 0
+Region 0
+Region 1
+ShowUnit=1

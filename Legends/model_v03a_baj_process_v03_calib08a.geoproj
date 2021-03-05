@@ -1,0 +1,3754 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<GeonamicaSimulation>
+
+  <applicationSettings>
+    <InterfaceDllFile>MetronamicaUI.dll</InterfaceDllFile>
+    <LegendsDirectory>Legends</LegendsDirectory>
+    <LogFile>Log/model_v03_baj.log</LogFile>
+    <AnimationDirectory>Animations</AnimationDirectory>
+    <SimulationPauses>
+      <vector>
+        <elem>2051-Jan-01 00:00:00</elem>
+      </vector>
+    </SimulationPauses>
+    <Configuration>L,ZoningTool,SuitabilityTool</Configuration>
+    <Version>Metronamica 4.4.0</Version>
+  </applicationSettings>
+
+  <GuiSettings>
+    <StandardLayers>
+      <elem>
+        <GroupNames>
+          <vector>
+            <elem></elem>
+            <elem>Infrastructure</elem>
+          </vector>
+        </GroupNames>
+        <Name>Region boundaries</Name>
+        <File>Data/region_boundaries_DTAG.shp</File>
+        <Legend>Regions.txt</Legend>
+        <Field>Value</Field>
+        <FillPolygons>0</FillPolygons>
+        <InitiallyVisible>1</InitiallyVisible>
+        <IncludeInToolTip>1</IncludeInToolTip>
+      </elem>
+      <elem>
+        <GroupNames>
+          <vector>
+            <elem></elem>
+            <elem>Infrastructure</elem>
+          </vector>
+        </GroupNames>
+        <Name>Hide outside modelling area</Name>
+        <File>Data/OutsideModellingArea.shp</File>
+        <Legend>Regions.txt</Legend>
+        <Field>Value</Field>
+        <FillPolygons>1</FillPolygons>
+        <InitiallyVisible>0</InitiallyVisible>
+        <IncludeInToolTip>0</IncludeInToolTip>
+      </elem>
+    </StandardLayers>
+  </GuiSettings>
+
+  <model>
+    <modelSettings>
+      <startTime>2012-Jan-01 00:00:00</startTime>
+      <currentTime>2012-Jan-01 00:00:00</currentTime>
+      <SupportLargeRasterMaps>0</SupportLargeRasterMaps>
+      <ShowAllMaps>0</ShowAllMaps>
+    </modelSettings>
+    <modelBlocks>
+      <modelBlock library="Region.dll" name="MB_Regions">
+        <RegionBlock>
+          <RegionMap>Data/region_boundaries_DTAG.tif</RegionMap>
+        </RegionBlock>
+      </modelBlock>
+      <modelBlock library="Region.dll" name="MB_Region_names">
+        <RegionNamesBlock>
+          <RegionNames>
+            <vector>
+              <elem>Region 1</elem>
+            </vector>
+          </RegionNames>
+        </RegionNamesBlock>
+      </modelBlock>
+      <modelBlock library="Network.dll" name="MB_Infrastructure">
+        <NetworkBlock>
+          <NetworkLayers>
+            <initialValue>
+              <vector>
+                <elem name="Big cities">Data/big_cities_DTAG.shp</elem>
+                <elem name="Road network">Data/road_street_new.shp</elem>
+                <elem name="Water network">Data/CanalRiverNew.shp</elem>
+              </vector>
+            </initialValue>
+            <currentValue>
+              <vector>
+                <elem name="Big cities">Data/Network_Big cities.shp</elem>
+                <elem name="Road network">Data/Network_Road network.shp</elem>
+                <elem name="Water network">Data/Network_Water network.shp</elem>
+              </vector>
+            </currentValue>
+          </NetworkLayers>
+          <NetworkDeltas>
+            <value time="2002-Jan-01 00:00:00">
+              <vector>
+                <elem>
+                  <vector/>
+                </elem>
+                <elem>
+                  <vector/>
+                </elem>
+                <elem>
+                  <vector/>
+                </elem>
+              </vector>
+            </value>
+          </NetworkDeltas>
+        </NetworkBlock>
+      </modelBlock>
+      <modelBlock library="" name="MB_Land_use_model">
+        <CompositeModelBlock>
+          <modelBlocks>
+            <modelBlock library="CAModel.dll" name="MB_Land_use_parameters">
+              <MicroModelParamsBlock>
+                <NrOfVacantsFunctionsFeatures>
+                  <NVacants>1</NVacants>
+                  <NFunctions>7</NFunctions>
+                  <NFeatures>2</NFeatures>
+                  <LanduseName>
+                    <vector>
+                      <elem>Outside</elem>
+                      <elem>Shrimp-rice farming</elem>
+                      <elem>Triple rice farming</elem>
+                      <elem>Double rice farming</elem>
+                      <elem>Single rice farming</elem>
+                      <elem>Urban</elem>
+                      <elem>Orchard plantation</elem>
+                      <elem>Aquaculture</elem>
+                      <elem>Unclassified &amp; extensive farming</elem>
+                      <elem>Sea lake river</elem>
+                    </vector>
+                  </LanduseName>
+                </NrOfVacantsFunctionsFeatures>
+                <AccessibilityTypeNames>
+                  <vector>
+                    <elem>1: National highway</elem>
+                    <elem>2: province road</elem>
+                    <elem>3: residential road</elem>
+                    <elem>4: main river</elem>
+                    <elem>5: distribution channels/canal</elem>
+                    <elem>6: provincial capital city</elem>
+                    <elem>7: big cities</elem>
+                  </vector>
+                </AccessibilityTypeNames>
+              </MicroModelParamsBlock>
+            </modelBlock>
+            <modelBlock library="CAModel.dll" name="MB_Rules">
+              <RulesBlock>
+                <MaximumDistance>8</MaximumDistance>
+                <Rules>
+                  <value time="2002-Jan-01 00:00:00">
+                    <vector>
+                      <elem>
+                        <vector>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="8" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="500"/>
+                              <point x="1" y="60"/>
+                              <point x="2" y="15"/>
+                              <point x="3" y="2"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="150"/>
+                              <point x="1" y="15"/>
+                              <point x="2" y="5"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="120"/>
+                              <point x="1" y="10"/>
+                              <point x="2" y="3"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="60"/>
+                              <point x="1" y="15"/>
+                              <point x="2" y="8"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="1.41421" y="0"/>
+                              <point x="2" y="0"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="1" y="0"/>
+                              <point x="2" y="0"/>
+                              <point x="3" y="1"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="200"/>
+                              <point x="1" y="15"/>
+                              <point x="2" y="6"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="8" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="8" y="0"/>
+                            </spline>
+                          </elem>
+                        </vector>
+                      </elem>
+                      <elem>
+                        <vector>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="8" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="200"/>
+                              <point x="1" y="20"/>
+                              <point x="2" y="6"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="700"/>
+                              <point x="1" y="80"/>
+                              <point x="2" y="20"/>
+                              <point x="3" y="2"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="450"/>
+                              <point x="1" y="45"/>
+                              <point x="2" y="17"/>
+                              <point x="3" y="5"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="100"/>
+                              <point x="1" y="10"/>
+                              <point x="2" y="2"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="1" y="0"/>
+                              <point x="2.23607" y="0"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="150"/>
+                              <point x="1" y="15"/>
+                              <point x="2" y="5"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="150"/>
+                              <point x="1" y="15"/>
+                              <point x="2" y="5"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="8" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="8" y="0"/>
+                            </spline>
+                          </elem>
+                        </vector>
+                      </elem>
+                      <elem>
+                        <vector>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="8" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="200"/>
+                              <point x="1" y="20"/>
+                              <point x="2" y="8"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="200"/>
+                              <point x="1" y="30"/>
+                              <point x="2" y="5"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="550"/>
+                              <point x="1" y="55"/>
+                              <point x="2" y="11"/>
+                              <point x="3" y="1.2"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="250"/>
+                              <point x="1" y="25"/>
+                              <point x="2" y="5"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="1" y="0"/>
+                              <point x="2" y="0"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="150"/>
+                              <point x="1" y="10"/>
+                              <point x="2" y="5"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="150"/>
+                              <point x="1" y="15"/>
+                              <point x="2" y="5"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="8" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="8" y="0"/>
+                            </spline>
+                          </elem>
+                        </vector>
+                      </elem>
+                      <elem>
+                        <vector>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="8" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="1" y="0"/>
+                              <point x="2" y="0"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="1" y="0"/>
+                              <point x="2" y="0"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="150"/>
+                              <point x="1" y="10"/>
+                              <point x="2" y="4"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="400"/>
+                              <point x="1" y="40"/>
+                              <point x="2" y="10"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="1" y="0"/>
+                              <point x="2" y="0"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="1" y="0"/>
+                              <point x="2" y="0"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="1" y="0"/>
+                              <point x="2" y="0"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="8" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="8" y="0"/>
+                            </spline>
+                          </elem>
+                        </vector>
+                      </elem>
+                      <elem>
+                        <vector>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="8" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="1" y="0"/>
+                              <point x="2" y="0"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="1" y="0"/>
+                              <point x="2" y="0"/>
+                              <point x="2.82843" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="1" y="0"/>
+                              <point x="2" y="0"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="1" y="0"/>
+                              <point x="2" y="0"/>
+                              <point x="3.16228" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="1000"/>
+                              <point x="1" y="150"/>
+                              <point x="2" y="40"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="1" y="0"/>
+                              <point x="2" y="0"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="1" y="0"/>
+                              <point x="2" y="0"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="8" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="8" y="0"/>
+                            </spline>
+                          </elem>
+                        </vector>
+                      </elem>
+                      <elem>
+                        <vector>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="8" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="100"/>
+                              <point x="1" y="15"/>
+                              <point x="2" y="6"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="100"/>
+                              <point x="1" y="15"/>
+                              <point x="2" y="6"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="100"/>
+                              <point x="1" y="15"/>
+                              <point x="2" y="6"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="50"/>
+                              <point x="1" y="5"/>
+                              <point x="2" y="0"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="1" y="0"/>
+                              <point x="2" y="0"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="800"/>
+                              <point x="1" y="40"/>
+                              <point x="2" y="10"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="1.41421" y="0"/>
+                              <point x="2" y="0"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="8" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="8" y="0"/>
+                            </spline>
+                          </elem>
+                        </vector>
+                      </elem>
+                      <elem>
+                        <vector>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="8" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="150"/>
+                              <point x="1" y="15"/>
+                              <point x="2" y="5"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="100"/>
+                              <point x="1" y="10"/>
+                              <point x="2" y="3"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="100"/>
+                              <point x="1" y="10"/>
+                              <point x="2" y="5"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="300"/>
+                              <point x="1" y="30"/>
+                              <point x="2" y="5"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="1" y="0"/>
+                              <point x="2" y="0"/>
+                              <point x="3.16228" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="1" y="0"/>
+                              <point x="2" y="0"/>
+                              <point x="3" y="0"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="500"/>
+                              <point x="1" y="50"/>
+                              <point x="2" y="15"/>
+                              <point x="3" y="2"/>
+                              <point x="4" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="8" y="0"/>
+                            </spline>
+                          </elem>
+                          <elem>
+                            <spline>
+                              <point x="0" y="0"/>
+                              <point x="8" y="0"/>
+                            </spline>
+                          </elem>
+                        </vector>
+                      </elem>
+                    </vector>
+                  </value>
+                </Rules>
+              </RulesBlock>
+            </modelBlock>
+            <modelBlock library="CAModel.dll" name="MB_Neighbourhood">
+              <NeighbourhoodEffectBlock/>
+            </modelBlock>
+            <modelBlock library="CAModel.dll" name="MB_Suitability">
+              <SuitabilityBlockEx>
+                <NumericalInputMaps>
+                  <vector/>
+                </NumericalInputMaps>
+                <NumericalFactors>
+                  <vector>
+                    <elem>
+                      <Name>Water supply</Name>
+                      <Legend>Legends/DTAG_WaterRecurrence.txt</Legend>
+                      <Interpolate>0</Interpolate>
+                      <BaseMaps>
+                        <value time="2002-Jan-01 00:00:00">Data/water/water_recurence_2002.tif</value>
+                        <value time="2003-Jan-01 00:00:00">Data/water/water_recurence_2003.tif</value>
+                        <value time="2004-Jan-01 00:00:00">Data/water/water_recurence_2004.tif</value>
+                        <value time="2005-Jan-01 00:00:00">Data/water/water_recurence_2005.tif</value>
+                        <value time="2006-Jan-01 00:00:00">Data/water/water_recurence_2006.tif</value>
+                        <value time="2007-Jan-01 00:00:00">Data/water/water_recurence_2007.tif</value>
+                        <value time="2008-Jan-01 00:00:00">Data/water/water_recurence_2008.tif</value>
+                        <value time="2009-Jan-01 00:00:00">Data/water/water_recurence_2009.tif</value>
+                        <value time="2010-Jan-01 00:00:00">Data/water/water_recurence_2010.tif</value>
+                        <value time="2011-Jan-01 00:00:00">Data/water/water_recurence_2011.tif</value>
+                        <value time="2012-Jan-01 00:00:00">Data/water/water_recurence_2012.tif</value>
+                        <value time="2013-Jan-01 00:00:00">Data/water/water_recurence_2013.tif</value>
+                        <value time="2014-Jan-01 00:00:00">Data/water/water_recurence_2014.tif</value>
+                        <value time="2015-Jan-01 00:00:00">Data/water/water_recurence_2015.tif</value>
+                        <value time="2016-Jan-01 00:00:00">Data/water/water_recurence_2016.tif</value>
+                        <value time="2017-Jan-01 00:00:00">Data/water/water_recurence_2017.tif</value>
+                        <value time="2018-Jan-01 00:00:00">Data/water/water_recurence_2018.tif</value>
+                        <value time="2019-Jan-01 00:00:00">Data/water/water_recurence_2019.tif</value>
+                        <value time="2020-Jan-01 00:00:00">Data/water/water_recurence_2020.tif</value>
+                        <value time="2021-Jan-01 00:00:00">Data/water/water_recurence_2021.tif</value>
+                        <value time="2022-Jan-01 00:00:00">Data/water/water_recurence_2022.tif</value>
+                        <value time="2023-Jan-01 00:00:00">Data/water/water_recurence_2023.tif</value>
+                        <value time="2024-Jan-01 00:00:00">Data/water/water_recurence_2024.tif</value>
+                        <value time="2025-Jan-01 00:00:00">Data/water/water_recurence_2025.tif</value>
+                        <value time="2026-Jan-01 00:00:00">Data/water/water_recurence_2026.tif</value>
+                        <value time="2027-Jan-01 00:00:00">Data/water/water_recurence_2027.tif</value>
+                        <value time="2028-Jan-01 00:00:00">Data/water/water_recurence_2028.tif</value>
+                        <value time="2029-Jan-01 00:00:00">Data/water/water_recurence_2029.tif</value>
+                        <value time="2030-Jan-01 00:00:00">Data/water/water_recurence_2030.tif</value>
+                      </BaseMaps>
+                    </elem>
+                    <elem>
+                      <Name>Nutrients stock</Name>
+                      <Legend>Legends/Nutrients.txt</Legend>
+                      <Interpolate>0</Interpolate>
+                      <BaseMaps>
+                        <value time="2002-Jan-01 00:00:00">Data/nutrients_stock/nutrients_stock_2002.tif</value>
+                        <value time="2003-Jan-01 00:00:00">Data/nutrients_stock/nutrients_stock_2003.tif</value>
+                        <value time="2004-Jan-01 00:00:00">Data/nutrients_stock/nutrients_stock_2004.tif</value>
+                        <value time="2005-Jan-01 00:00:00">Data/nutrients_stock/nutrients_stock_2005.tif</value>
+                        <value time="2006-Jan-01 00:00:00">Data/nutrients_stock/nutrients_stock_2006.tif</value>
+                        <value time="2007-Jan-01 00:00:00">Data/nutrients_stock/nutrients_stock_2007.tif</value>
+                        <value time="2008-Jan-01 00:00:00">Data/nutrients_stock/nutrients_stock_2008.tif</value>
+                        <value time="2009-Jan-01 00:00:00">Data/nutrients_stock/nutrients_stock_2009.tif</value>
+                        <value time="2010-Jan-01 00:00:00">Data/nutrients_stock/nutrients_stock_2010.tif</value>
+                        <value time="2011-Jan-01 00:00:00">Data/nutrients_stock/nutrients_stock_2011.tif</value>
+                        <value time="2012-Jan-01 00:00:00">Data/nutrients_stock/nutrients_stock_2012.tif</value>
+                        <value time="2013-Jan-01 00:00:00">Data/nutrients_stock/nutrients_stock_2013.tif</value>
+                        <value time="2014-Jan-01 00:00:00">Data/nutrients_stock/nutrients_stock_2014.tif</value>
+                        <value time="2015-Jan-01 00:00:00">Data/nutrients_stock/nutrients_stock_2015.tif</value>
+                        <value time="2016-Jan-01 00:00:00">Data/nutrients_stock/nutrients_stock_2016.tif</value>
+                        <value time="2017-Jan-01 00:00:00">Data/nutrients_stock/nutrients_stock_2017.tif</value>
+                        <value time="2018-Jan-01 00:00:00">Data/nutrients_stock/nutrients_stock_2018.tif</value>
+                        <value time="2019-Jan-01 00:00:00">Data/nutrients_stock/nutrients_stock_2019.tif</value>
+                        <value time="2020-Jan-01 00:00:00">Data/nutrients_stock/nutrients_stock_2020.tif</value>
+                        <value time="2021-Jan-01 00:00:00">Data/nutrients_stock/nutrients_stock_2021.tif</value>
+                        <value time="2022-Jan-01 00:00:00">Data/nutrients_stock/nutrients_stock_2022.tif</value>
+                        <value time="2023-Jan-01 00:00:00">Data/nutrients_stock/nutrients_stock_2023.tif</value>
+                        <value time="2024-Jan-01 00:00:00">Data/nutrients_stock/nutrients_stock_2024.tif</value>
+                        <value time="2025-Jan-01 00:00:00">Data/nutrients_stock/nutrients_stock_2025.tif</value>
+                        <value time="2026-Jan-01 00:00:00">Data/nutrients_stock/nutrients_stock_2026.tif</value>
+                        <value time="2027-Jan-01 00:00:00">Data/nutrients_stock/nutrients_stock_2027.tif</value>
+                        <value time="2028-Jan-01 00:00:00">Data/nutrients_stock/nutrients_stock_2028.tif</value>
+                        <value time="2029-Jan-01 00:00:00">Data/nutrients_stock/nutrients_stock_2029.tif</value>
+                        <value time="2030-Jan-01 00:00:00">Data/nutrients_stock/nutrients_stock_2030.tif</value>
+                      </BaseMaps>
+                    </elem>
+                  </vector>
+                </NumericalFactors>
+                <NumericalInterpretations>
+                  <vector>
+                    <elem>
+                      <vector>
+                        <elem>
+                          <spline>
+                            <point x="0" y="1"/>
+                            <point x="30" y="1"/>
+                          </spline>
+                        </elem>
+                        <elem>
+                          <spline>
+                            <point x="0" y="1"/>
+                            <point x="0.2" y="1"/>
+                            <point x="0.6" y="1"/>
+                            <point x="1" y="1"/>
+                            <point x="1.9" y="1"/>
+                            <point x="2" y="1"/>
+                            <point x="4" y="0.8"/>
+                            <point x="6" y="0.5"/>
+                            <point x="10" y="0.2"/>
+                            <point x="50" y="0.2"/>
+                            <point x="100" y="0.2"/>
+                          </spline>
+                        </elem>
+                        <elem>
+                          <spline>
+                            <point x="0" y="1"/>
+                            <point x="0.2" y="0.8"/>
+                            <point x="0.6" y="0.5"/>
+                            <point x="1" y="0.3"/>
+                            <point x="1.9" y="0.2"/>
+                            <point x="2" y="0.2"/>
+                            <point x="4" y="0.2"/>
+                            <point x="10" y="0.2"/>
+                            <point x="100" y="0.2"/>
+                          </spline>
+                        </elem>
+                        <elem>
+                          <spline>
+                            <point x="0" y="1"/>
+                            <point x="1.4" y="1"/>
+                            <point x="2" y="1"/>
+                            <point x="3" y="0.9"/>
+                            <point x="3.5" y="0.85"/>
+                            <point x="4" y="0.8"/>
+                            <point x="6" y="0.5"/>
+                            <point x="10" y="0.2"/>
+                            <point x="50" y="0.2"/>
+                            <point x="100" y="0.2"/>
+                          </spline>
+                        </elem>
+                        <elem>
+                          <spline>
+                            <point x="0" y="1"/>
+                            <point x="0.3" y="1"/>
+                            <point x="2" y="1"/>
+                            <point x="2.5" y="0.95"/>
+                            <point x="3" y="0.9"/>
+                            <point x="4" y="0.8"/>
+                            <point x="6" y="0.5"/>
+                            <point x="10" y="0.2"/>
+                            <point x="100" y="0.2"/>
+                          </spline>
+                        </elem>
+                        <elem>
+                          <spline>
+                            <point x="0" y="1"/>
+                            <point x="0.8" y="0.4"/>
+                            <point x="1.6" y="0.1"/>
+                            <point x="2.4" y="0.05"/>
+                            <point x="3.2" y="0.02"/>
+                            <point x="4" y="0.01"/>
+                            <point x="100" y="0"/>
+                          </spline>
+                        </elem>
+                        <elem>
+                          <spline>
+                            <point x="0" y="1"/>
+                            <point x="0.2" y="0.8"/>
+                            <point x="0.6" y="0.5"/>
+                            <point x="1" y="0.3"/>
+                            <point x="1.9" y="0.2"/>
+                            <point x="2" y="0.2"/>
+                            <point x="4" y="0.2"/>
+                            <point x="10" y="0.2"/>
+                            <point x="100" y="0.2"/>
+                          </spline>
+                        </elem>
+                        <elem>
+                          <spline>
+                            <point x="0" y="1"/>
+                            <point x="1.3" y="1"/>
+                            <point x="2" y="1"/>
+                            <point x="2.5" y="0.95"/>
+                            <point x="3" y="0.9"/>
+                            <point x="4" y="0.8"/>
+                            <point x="6" y="0.5"/>
+                            <point x="10" y="0.2"/>
+                            <point x="100" y="0.2"/>
+                          </spline>
+                        </elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>
+                          <spline>
+                            <point x="0" y="1"/>
+                            <point x="150" y="1"/>
+                          </spline>
+                        </elem>
+                        <elem>
+                          <spline>
+                            <point x="0" y="0.7"/>
+                            <point x="200" y="0.7"/>
+                            <point x="400" y="0.9"/>
+                            <point x="600" y="1"/>
+                            <point x="800" y="1"/>
+                            <point x="1000" y="1"/>
+                          </spline>
+                        </elem>
+                        <elem>
+                          <spline>
+                            <point x="0" y="0.5"/>
+                            <point x="200" y="0.5"/>
+                            <point x="400" y="0.8"/>
+                            <point x="600" y="1"/>
+                            <point x="800" y="1"/>
+                            <point x="1000" y="1"/>
+                          </spline>
+                        </elem>
+                        <elem>
+                          <spline>
+                            <point x="0" y="0.5"/>
+                            <point x="200" y="0.5"/>
+                            <point x="400" y="0.8"/>
+                            <point x="600" y="1"/>
+                            <point x="800" y="1"/>
+                            <point x="1000" y="1"/>
+                          </spline>
+                        </elem>
+                        <elem>
+                          <spline>
+                            <point x="0" y="0.6"/>
+                            <point x="200" y="0.6"/>
+                            <point x="400" y="0.85"/>
+                            <point x="600" y="1"/>
+                            <point x="800" y="1"/>
+                            <point x="1000" y="1"/>
+                          </spline>
+                        </elem>
+                        <elem>
+                          <spline>
+                            <point x="0" y="1"/>
+                            <point x="150" y="1"/>
+                          </spline>
+                        </elem>
+                        <elem>
+                          <spline>
+                            <point x="0" y="0.65"/>
+                            <point x="200" y="0.65"/>
+                            <point x="400" y="0.9"/>
+                            <point x="600" y="1"/>
+                            <point x="800" y="1"/>
+                            <point x="1000" y="1"/>
+                          </spline>
+                        </elem>
+                        <elem>
+                          <spline>
+                            <point x="0" y="0.75"/>
+                            <point x="200" y="0.9"/>
+                            <point x="400" y="1"/>
+                            <point x="600" y="1"/>
+                            <point x="800" y="1"/>
+                            <point x="1000" y="1"/>
+                          </spline>
+                        </elem>
+                      </vector>
+                    </elem>
+                  </vector>
+                </NumericalInterpretations>
+                <NumericalWeight>
+                  <vector>
+                    <elem>
+                      <vector>
+                        <elem>
+                          <pair>
+                            <first>0</first>
+                            <second>1</second>
+                          </pair>
+                        </elem>
+                        <elem>
+                          <pair>
+                            <first>0</first>
+                            <second>1</second>
+                          </pair>
+                        </elem>
+                        <elem>
+                          <pair>
+                            <first>0</first>
+                            <second>1</second>
+                          </pair>
+                        </elem>
+                        <elem>
+                          <pair>
+                            <first>0</first>
+                            <second>1</second>
+                          </pair>
+                        </elem>
+                        <elem>
+                          <pair>
+                            <first>0</first>
+                            <second>1</second>
+                          </pair>
+                        </elem>
+                        <elem>
+                          <pair>
+                            <first>0</first>
+                            <second>1</second>
+                          </pair>
+                        </elem>
+                        <elem>
+                          <pair>
+                            <first>0</first>
+                            <second>1</second>
+                          </pair>
+                        </elem>
+                        <elem>
+                          <pair>
+                            <first>0</first>
+                            <second>1</second>
+                          </pair>
+                        </elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>
+                          <pair>
+                            <first>0</first>
+                            <second>1</second>
+                          </pair>
+                        </elem>
+                        <elem>
+                          <pair>
+                            <first>0</first>
+                            <second>1</second>
+                          </pair>
+                        </elem>
+                        <elem>
+                          <pair>
+                            <first>0</first>
+                            <second>1</second>
+                          </pair>
+                        </elem>
+                        <elem>
+                          <pair>
+                            <first>0</first>
+                            <second>1</second>
+                          </pair>
+                        </elem>
+                        <elem>
+                          <pair>
+                            <first>0</first>
+                            <second>1</second>
+                          </pair>
+                        </elem>
+                        <elem>
+                          <pair>
+                            <first>0</first>
+                            <second>1</second>
+                          </pair>
+                        </elem>
+                        <elem>
+                          <pair>
+                            <first>0</first>
+                            <second>1</second>
+                          </pair>
+                        </elem>
+                        <elem>
+                          <pair>
+                            <first>0</first>
+                            <second>1</second>
+                          </pair>
+                        </elem>
+                      </vector>
+                    </elem>
+                  </vector>
+                </NumericalWeight>
+                <CategoricalInputMaps>
+                  <vector/>
+                </CategoricalInputMaps>
+                <CategoricalFactors>
+                  <vector>
+                    <elem>
+                      <Name>Soil types</Name>
+                      <Legend>Legends/DTAG_SoilType.txt</Legend>
+                      <BaseMaps>
+                        <value time="2002-Jan-01 00:00:00">Data/soil_DTAG_HWSD_full_recategorized.tif</value>
+                      </BaseMaps>
+                    </elem>
+                    <elem>
+                      <Name>Dikes</Name>
+                      <Legend>Legends/Dike-all.txt</Legend>
+                      <BaseMaps>
+                        <value time="2002-Jan-01 00:00:00">Data/CombinedDikes_Proxy/DTAG_Dikes_proxy_2002.tif</value>
+                        <value time="2003-Jan-01 00:00:00">Data/CombinedDikes_Proxy/DTAG_Dikes_proxy_2004_edited.tif</value>
+                        <value time="2004-Jan-01 00:00:00">Data/CombinedDikes_Proxy/DTAG_Dikes_proxy_2005_edited.tif</value>
+                        <value time="2005-Jan-01 00:00:00">Data/CombinedDikes_Proxy/DTAG_Dikes_proxy_2006_edited.tif</value>
+                        <value time="2006-Jan-01 00:00:00">Data/CombinedDikes_Proxy/DTAG_Dikes_proxy_2007_edited.tif</value>
+                        <value time="2007-Jan-01 00:00:00">Data/CombinedDikes_Proxy/DTAG_Dikes_proxy_2008_edited.tif</value>
+                        <value time="2008-Jan-01 00:00:00">Data/CombinedDikes_Proxy/DTAG_Dikes_proxy_2009_edited.tif</value>
+                        <value time="2009-Jan-01 00:00:00">Data/CombinedDikes_Proxy/DTAG_Dikes_proxy_2010.tif</value>
+                        <value time="2010-Jan-01 00:00:00">Data/CombinedDikes_Proxy/DTAG_Dikes_proxy_2011.tif</value>
+                        <value time="2011-Jan-01 00:00:00">Data/CombinedDikes_Proxy/DTAG_Dikes_proxy_2011.tif</value>
+                        <value time="2020-Jan-01 00:00:00">Data/CombinedDikes_Proxy/DTAG_Dikes_proxy_2011.tif</value>
+                      </BaseMaps>
+                    </elem>
+                  </vector>
+                </CategoricalFactors>
+                <CategoricalInterpretations>
+                  <vector>
+                    <elem>
+                      <vector>
+                        <elem>
+                          <vector>
+                            <elem>1</elem>
+                            <elem>1</elem>
+                            <elem>1</elem>
+                            <elem>1</elem>
+                            <elem>1</elem>
+                          </vector>
+                        </elem>
+                        <elem>
+                          <vector>
+                            <elem>0</elem>
+                            <elem>0.75</elem>
+                            <elem>1</elem>
+                            <elem>0.5</elem>
+                            <elem>0.85</elem>
+                          </vector>
+                        </elem>
+                        <elem>
+                          <vector>
+                            <elem>0</elem>
+                            <elem>0.8</elem>
+                            <elem>1</elem>
+                            <elem>0.3</elem>
+                            <elem>0.75</elem>
+                          </vector>
+                        </elem>
+                        <elem>
+                          <vector>
+                            <elem>0</elem>
+                            <elem>0.6</elem>
+                            <elem>1</elem>
+                            <elem>0.3</elem>
+                            <elem>0.75</elem>
+                          </vector>
+                        </elem>
+                        <elem>
+                          <vector>
+                            <elem>0</elem>
+                            <elem>0.75</elem>
+                            <elem>1</elem>
+                            <elem>0.5</elem>
+                            <elem>0.85</elem>
+                          </vector>
+                        </elem>
+                        <elem>
+                          <vector>
+                            <elem>1</elem>
+                            <elem>1</elem>
+                            <elem>1</elem>
+                            <elem>1</elem>
+                            <elem>1</elem>
+                          </vector>
+                        </elem>
+                        <elem>
+                          <vector>
+                            <elem>0</elem>
+                            <elem>0.7</elem>
+                            <elem>1</elem>
+                            <elem>0.45</elem>
+                            <elem>0.85</elem>
+                          </vector>
+                        </elem>
+                        <elem>
+                          <vector>
+                            <elem>0</elem>
+                            <elem>1</elem>
+                            <elem>1</elem>
+                            <elem>0.6</elem>
+                            <elem>0.9</elem>
+                          </vector>
+                        </elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>
+                          <vector>
+                            <elem>1</elem>
+                            <elem>1</elem>
+                            <elem>1</elem>
+                          </vector>
+                        </elem>
+                        <elem>
+                          <vector>
+                            <elem>0.3</elem>
+                            <elem>1</elem>
+                            <elem>0.8</elem>
+                          </vector>
+                        </elem>
+                        <elem>
+                          <vector>
+                            <elem>0</elem>
+                            <elem>0.2</elem>
+                            <elem>1</elem>
+                          </vector>
+                        </elem>
+                        <elem>
+                          <vector>
+                            <elem>0.2</elem>
+                            <elem>1</elem>
+                            <elem>0.5</elem>
+                          </vector>
+                        </elem>
+                        <elem>
+                          <vector>
+                            <elem>1</elem>
+                            <elem>0.7</elem>
+                            <elem>0.3</elem>
+                          </vector>
+                        </elem>
+                        <elem>
+                          <vector>
+                            <elem>1</elem>
+                            <elem>1</elem>
+                            <elem>1</elem>
+                          </vector>
+                        </elem>
+                        <elem>
+                          <vector>
+                            <elem>1</elem>
+                            <elem>1</elem>
+                            <elem>0.7</elem>
+                          </vector>
+                        </elem>
+                        <elem>
+                          <vector>
+                            <elem>0.5</elem>
+                            <elem>1</elem>
+                            <elem>0.5</elem>
+                          </vector>
+                        </elem>
+                      </vector>
+                    </elem>
+                  </vector>
+                </CategoricalInterpretations>
+                <CategoricalWeight>
+                  <vector>
+                    <elem>
+                      <vector>
+                        <elem>
+                          <pair>
+                            <first>0</first>
+                            <second>1</second>
+                          </pair>
+                        </elem>
+                        <elem>
+                          <pair>
+                            <first>1</first>
+                            <second>1</second>
+                          </pair>
+                        </elem>
+                        <elem>
+                          <pair>
+                            <first>1</first>
+                            <second>1</second>
+                          </pair>
+                        </elem>
+                        <elem>
+                          <pair>
+                            <first>1</first>
+                            <second>1</second>
+                          </pair>
+                        </elem>
+                        <elem>
+                          <pair>
+                            <first>0</first>
+                            <second>1</second>
+                          </pair>
+                        </elem>
+                        <elem>
+                          <pair>
+                            <first>0</first>
+                            <second>1</second>
+                          </pair>
+                        </elem>
+                        <elem>
+                          <pair>
+                            <first>1</first>
+                            <second>1</second>
+                          </pair>
+                        </elem>
+                        <elem>
+                          <pair>
+                            <first>0</first>
+                            <second>1</second>
+                          </pair>
+                        </elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>
+                          <pair>
+                            <first>0</first>
+                            <second>1</second>
+                          </pair>
+                        </elem>
+                        <elem>
+                          <pair>
+                            <first>1</first>
+                            <second>1</second>
+                          </pair>
+                        </elem>
+                        <elem>
+                          <pair>
+                            <first>1</first>
+                            <second>1</second>
+                          </pair>
+                        </elem>
+                        <elem>
+                          <pair>
+                            <first>1</first>
+                            <second>1</second>
+                          </pair>
+                        </elem>
+                        <elem>
+                          <pair>
+                            <first>1</first>
+                            <second>1</second>
+                          </pair>
+                        </elem>
+                        <elem>
+                          <pair>
+                            <first>0</first>
+                            <second>1</second>
+                          </pair>
+                        </elem>
+                        <elem>
+                          <pair>
+                            <first>1</first>
+                            <second>1</second>
+                          </pair>
+                        </elem>
+                        <elem>
+                          <pair>
+                            <first>0</first>
+                            <second>1</second>
+                          </pair>
+                        </elem>
+                      </vector>
+                    </elem>
+                  </vector>
+                </CategoricalWeight>
+                <DefaultValue>
+                  <vector>
+                    <elem>1</elem>
+                    <elem>1</elem>
+                    <elem>1</elem>
+                    <elem>1</elem>
+                    <elem>1</elem>
+                    <elem>1</elem>
+                    <elem>1</elem>
+                    <elem>1</elem>
+                  </vector>
+                </DefaultValue>
+                <CombinationMethod>
+                  <vector>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                  </vector>
+                </CombinationMethod>
+              </SuitabilityBlockEx>
+            </modelBlock>
+            <modelBlock library="CAModel.dll" name="MB_Zoning">
+              <ZoningBlockExt>
+                <CacheFile>no_file</CacheFile>
+                <StartTime>2002-Jan-01 00:00:00</StartTime>
+                <ZoningStates>
+                  <vector>
+                    <elem>Actively stimulated</elem>
+                    <elem>Allowed</elem>
+                    <elem>Weakly restricted</elem>
+                    <elem>Strictly restricted</elem>
+                  </vector>
+                </ZoningStates>
+                <ZoningConfiguration>
+                  <LandUseFunctionCount>7</LandUseFunctionCount>
+                  <NumberOfRowsAndCols>
+                    <pair>
+                      <first>463</first>
+                      <second>646</second>
+                    </pair>
+                  </NumberOfRowsAndCols>
+                  <Extents>
+                    <MinX>474600</MinX>
+                    <MaxX>603800</MaxX>
+                    <MinY>1120400</MinY>
+                    <MaxY>1213000</MaxY>
+                    <CellSize>200</CellSize>
+                  </Extents>
+                  <ZoningFactorMaps>
+                    <map/>
+                  </ZoningFactorMaps>
+                  <ZoningCategories>
+                    <vector/>
+                  </ZoningCategories>
+                </ZoningConfiguration>
+              </ZoningBlockExt>
+            </modelBlock>
+            <modelBlock library="CAModel.dll" name="MB_Numerical_zoning">
+              <ZoningNumericalBlock>
+                <DeFactoZoning>
+                  <vector>
+                    <elem>
+                      <vector>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>1</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>0</elem>
+                        <elem>1</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>1</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>1</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>1</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>1</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>1</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                  </vector>
+                </DeFactoZoning>
+                <ZoningStateValue>
+                  <vector>
+                    <elem>
+                      <vector>
+                        <elem>1.5</elem>
+                        <elem>1</elem>
+                        <elem>0.5</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>1.5</elem>
+                        <elem>1</elem>
+                        <elem>0.5</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>1.5</elem>
+                        <elem>1</elem>
+                        <elem>0.5</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>1.5</elem>
+                        <elem>1</elem>
+                        <elem>0.5</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>1.5</elem>
+                        <elem>1</elem>
+                        <elem>0.5</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>1.5</elem>
+                        <elem>1</elem>
+                        <elem>0.5</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>1.5</elem>
+                        <elem>1</elem>
+                        <elem>0.5</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                  </vector>
+                </ZoningStateValue>
+              </ZoningNumericalBlock>
+            </modelBlock>
+            <modelBlock library="CAModel.dll" name="MB_Infrastructure_location">
+              <InfrastructureLocationBlock>
+                <NumberOfRowsAndCols>
+                  <pair>
+                    <first>463</first>
+                    <second>646</second>
+                  </pair>
+                </NumberOfRowsAndCols>
+                <Extents>
+                  <MinX>474600</MinX>
+                  <MaxX>603800</MaxX>
+                  <MinY>1120400</MinY>
+                  <MaxY>1213000</MaxY>
+                  <CellSize>200</CellSize>
+                </Extents>
+                <AccTypeValues>
+                  <vector>
+                    <elem>1</elem>
+                    <elem>2</elem>
+                    <elem>3</elem>
+                    <elem>4</elem>
+                    <elem>5</elem>
+                    <elem>6</elem>
+                    <elem>7</elem>
+                  </vector>
+                </AccTypeValues>
+              </InfrastructureLocationBlock>
+            </modelBlock>
+            <modelBlock library="CAModel.dll" name="MB_Distance_to_road">
+              <DistanceToRoadBlock>
+                <ImpassableArea>
+                  <vector>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                  </vector>
+                </ImpassableArea>
+              </DistanceToRoadBlock>
+            </modelBlock>
+            <modelBlock library="CAModel.dll" name="MB_Accessibility">
+              <AccessibilityWithZABlock>
+                <AccessibilityTypeIndex>
+                  <vector>
+                    <elem>0</elem>
+                    <elem>1</elem>
+                    <elem>2</elem>
+                    <elem>3</elem>
+                    <elem>4</elem>
+                    <elem>5</elem>
+                    <elem>6</elem>
+                  </vector>
+                </AccessibilityTypeIndex>
+                <DistanceDecay>
+                  <value time="2002-Jan-01 00:00:00">
+                    <vector>
+                      <elem>
+                        <vector>
+                          <elem>20</elem>
+                          <elem>20</elem>
+                          <elem>20</elem>
+                          <elem>20</elem>
+                          <elem>20</elem>
+                          <elem>20</elem>
+                          <elem>20</elem>
+                        </vector>
+                      </elem>
+                      <elem>
+                        <vector>
+                          <elem>5</elem>
+                          <elem>5</elem>
+                          <elem>5</elem>
+                          <elem>5</elem>
+                          <elem>5</elem>
+                          <elem>5</elem>
+                          <elem>5</elem>
+                        </vector>
+                      </elem>
+                      <elem>
+                        <vector>
+                          <elem>1</elem>
+                          <elem>1</elem>
+                          <elem>1</elem>
+                          <elem>1</elem>
+                          <elem>1</elem>
+                          <elem>1</elem>
+                          <elem>1</elem>
+                        </vector>
+                      </elem>
+                      <elem>
+                        <vector>
+                          <elem>30</elem>
+                          <elem>30</elem>
+                          <elem>20</elem>
+                          <elem>30</elem>
+                          <elem>30</elem>
+                          <elem>40</elem>
+                          <elem>30</elem>
+                        </vector>
+                      </elem>
+                      <elem>
+                        <vector>
+                          <elem>10</elem>
+                          <elem>20</elem>
+                          <elem>30</elem>
+                          <elem>20</elem>
+                          <elem>10</elem>
+                          <elem>20</elem>
+                          <elem>20</elem>
+                        </vector>
+                      </elem>
+                      <elem>
+                        <vector>
+                          <elem>75</elem>
+                          <elem>75</elem>
+                          <elem>75</elem>
+                          <elem>75</elem>
+                          <elem>75</elem>
+                          <elem>75</elem>
+                          <elem>75</elem>
+                        </vector>
+                      </elem>
+                      <elem>
+                        <vector>
+                          <elem>50</elem>
+                          <elem>50</elem>
+                          <elem>50</elem>
+                          <elem>50</elem>
+                          <elem>50</elem>
+                          <elem>50</elem>
+                          <elem>50</elem>
+                        </vector>
+                      </elem>
+                    </vector>
+                  </value>
+                </DistanceDecay>
+                <Weight>
+                  <value time="2002-Jan-01 00:00:00">
+                    <vector>
+                      <elem>
+                        <vector>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                        </vector>
+                      </elem>
+                      <elem>
+                        <vector>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                        </vector>
+                      </elem>
+                      <elem>
+                        <vector>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                        </vector>
+                      </elem>
+                      <elem>
+                        <vector>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                        </vector>
+                      </elem>
+                      <elem>
+                        <vector>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                        </vector>
+                      </elem>
+                      <elem>
+                        <vector>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                        </vector>
+                      </elem>
+                      <elem>
+                        <vector>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                          <elem>0</elem>
+                        </vector>
+                      </elem>
+                    </vector>
+                  </value>
+                </Weight>
+                <BuiltUpArea>
+                  <vector>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                  </vector>
+                </BuiltUpArea>
+                <ImplicitAccessibilityForBuiltUpArea>
+                  <value time="2002-Jan-01 00:00:00">
+                    <vector>
+                      <elem>1</elem>
+                      <elem>1</elem>
+                      <elem>1</elem>
+                      <elem>1</elem>
+                      <elem>1</elem>
+                      <elem>1</elem>
+                      <elem>1</elem>
+                    </vector>
+                  </value>
+                </ImplicitAccessibilityForBuiltUpArea>
+                <ImplicitAccessibilityForNonBuiltUpArea>
+                  <value time="2002-Jan-01 00:00:00">
+                    <vector>
+                      <elem>1</elem>
+                      <elem>1</elem>
+                      <elem>1</elem>
+                      <elem>1</elem>
+                      <elem>1</elem>
+                      <elem>1</elem>
+                      <elem>1</elem>
+                    </vector>
+                  </value>
+                </ImplicitAccessibilityForNonBuiltUpArea>
+              </AccessibilityWithZABlock>
+            </modelBlock>
+            <modelBlock library="CAModel.dll" name="MB_Zonal_accessibility">
+              <StaticZonalAccessibilityBlock>
+                <UseZonalAccessibility>0</UseZonalAccessibility>
+                <ZonalAccessibility>
+                  <vector>
+                    <elem>
+                      <vector/>
+                    </elem>
+                    <elem>
+                      <vector/>
+                    </elem>
+                    <elem>
+                      <vector/>
+                    </elem>
+                    <elem>
+                      <vector/>
+                    </elem>
+                    <elem>
+                      <vector/>
+                    </elem>
+                    <elem>
+                      <vector/>
+                    </elem>
+                    <elem>
+                      <vector/>
+                    </elem>
+                  </vector>
+                </ZonalAccessibility>
+                <ZoneMap>no_file</ZoneMap>
+                <ZoneNames>
+                  <vector/>
+                </ZoneNames>
+              </StaticZonalAccessibilityBlock>
+            </modelBlock>
+            <modelBlock library="CAModel.dll" name="MB_Total_potential">
+              <TotalPotentialBlock>
+                <FixedSeed>1</FixedSeed>
+                <Seed>5489</Seed>
+                <RandomEffect>
+                  <value time="2002-Jan-01 00:00:00">0.1</value>
+                </RandomEffect>
+                <Inertia>
+                  <vector>
+                    <elem>
+                      <vector>
+                        <elem>1</elem>
+                        <elem>1</elem>
+                        <elem>1</elem>
+                        <elem>1</elem>
+                        <elem>1</elem>
+                        <elem>1</elem>
+                        <elem>1</elem>
+                        <elem>1</elem>
+                        <elem>1</elem>
+                        <elem>1</elem>
+                      </vector>
+                    </elem>
+                  </vector>
+                </Inertia>
+              </TotalPotentialBlock>
+            </modelBlock>
+            <modelBlock library="CAModel.dll" name="MB_Land_use">
+              <SingleRegionLanduseBlock>
+                <LanduseMap>
+                  <initialValue>Data/DTAG_NIAESLU2011_200m_v03a_wgs84utm48n_t05.tif</initialValue>
+                  <currentValue>Data/Landuse.rst</currentValue>
+                </LanduseMap>
+                <LanduseDelta>
+                  <value time="2002-Jan-01 00:00:00">no_file</value>
+                </LanduseDelta>
+                <ThresholdPotential>-1e+038</ThresholdPotential>
+              </SingleRegionLanduseBlock>
+            </modelBlock>
+            <modelBlock library="CAModel.dll" name="MB_Land_use_count">
+              <CountMultiRegionLanduseBlock/>
+            </modelBlock>
+          </modelBlocks>
+          <modelConnections>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Rules</modelBlock>
+                <port>NrOfVacantsFunctionsFeatures</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Land_use_parameters</modelBlock>
+                <port>NrOfVacantsFunctionsFeatures</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Neighbourhood</modelBlock>
+                <port>Rules</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Rules</modelBlock>
+                <port>EffectsPerDistanceZone</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Neighbourhood</modelBlock>
+                <port>DistanceOfZones</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Rules</modelBlock>
+                <port>DistanceOfZones</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Neighbourhood</modelBlock>
+                <port>NrOfVacantsFunctionsFeatures</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Land_use_parameters</modelBlock>
+                <port>NrOfVacantsFunctionsFeatures</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Suitability</modelBlock>
+                <port>NrOfVacantsFunctionsFeatures</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Land_use_parameters</modelBlock>
+                <port>NrOfVacantsFunctionsFeatures</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Zoning</modelBlock>
+                <port>NrOfVacantsFunctionsFeatures</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Land_use_parameters</modelBlock>
+                <port>NrOfVacantsFunctionsFeatures</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Numerical_zoning</modelBlock>
+                <port>ZoningStates</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Zoning</modelBlock>
+                <port>ZoningStates</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Numerical_zoning</modelBlock>
+                <port>CategoricalZoningMaps</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Zoning</modelBlock>
+                <port>ZoningMaps</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Numerical_zoning</modelBlock>
+                <port>LanduseMap</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Land_use</modelBlock>
+                <port>LanduseMap</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Numerical_zoning</modelBlock>
+                <port>NrOfVacantsFunctionsFeatures</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Land_use_parameters</modelBlock>
+                <port>NrOfVacantsFunctionsFeatures</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Distance_to_road</modelBlock>
+                <port>NrOfVacantsFunctionsFeatures</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Land_use_parameters</modelBlock>
+                <port>NrOfVacantsFunctionsFeatures</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Distance_to_road</modelBlock>
+                <port>AccessibilityTypeNames</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Land_use_parameters</modelBlock>
+                <port>AccessibilityTypeNames</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Distance_to_road</modelBlock>
+                <port>InfrastructureCombinationMap</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Infrastructure_location</modelBlock>
+                <port>InfrastructureCombinationMap</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Distance_to_road</modelBlock>
+                <port>InfrastructureComputationTime</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Infrastructure_location</modelBlock>
+                <port>LastComputationTime</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Distance_to_road</modelBlock>
+                <port>LanduseMap</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Land_use</modelBlock>
+                <port>LanduseMap</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Distance_to_road</modelBlock>
+                <port>LanduseDeltaMap</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Land_use</modelBlock>
+                <port>LanduseDelta</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Accessibility</modelBlock>
+                <port>NrOfVacantsFunctionsFeatures</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Land_use_parameters</modelBlock>
+                <port>NrOfVacantsFunctionsFeatures</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Accessibility</modelBlock>
+                <port>ImpassableArea</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Distance_to_road</modelBlock>
+                <port>ImpassableArea</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Accessibility</modelBlock>
+                <port>DistanceToRoad</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Distance_to_road</modelBlock>
+                <port>DistanceToRoad</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Total_potential</modelBlock>
+                <port>NrOfVacantsFunctionsFeatures</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Land_use_parameters</modelBlock>
+                <port>NrOfVacantsFunctionsFeatures</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Total_potential</modelBlock>
+                <port>SuitabilityMap</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Suitability</modelBlock>
+                <port>SuitabilityMaps</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Total_potential</modelBlock>
+                <port>ZoningMap</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Numerical_zoning</modelBlock>
+                <port>NumericalZoningMaps</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Total_potential</modelBlock>
+                <port>NeighbourhoodEffectMap</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Neighbourhood</modelBlock>
+                <port>NeighbourhoodEffectMap</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Total_potential</modelBlock>
+                <port>AccessibilityMap</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Accessibility</modelBlock>
+                <port>AccessibilityMap</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Total_potential</modelBlock>
+                <port>LanduseMap</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Land_use</modelBlock>
+                <port>LanduseMap</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Neighbourhood</modelBlock>
+                <port>LanduseMap</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Land_use</modelBlock>
+                <port>LanduseMap</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Accessibility</modelBlock>
+                <port>LanduseMap</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Land_use</modelBlock>
+                <port>LanduseMap</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Land_use</modelBlock>
+                <port>NrOfVacantsFunctionsFeatures</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Land_use_parameters</modelBlock>
+                <port>NrOfVacantsFunctionsFeatures</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Land_use</modelBlock>
+                <port>TotalPotentialMaps</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Total_potential</modelBlock>
+                <port>TotalPotentialMaps</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Land_use_count</modelBlock>
+                <port>NrOfVacantsFunctionsFeatures</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Land_use_parameters</modelBlock>
+                <port>NrOfVacantsFunctionsFeatures</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Land_use_count</modelBlock>
+                <port>LanduseMap</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Land_use</modelBlock>
+                <port>LanduseMap</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Accessibility</modelBlock>
+                <port>ZonalAccessibility</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Zonal_accessibility</modelBlock>
+                <port>ZonalAccessibility</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Accessibility</modelBlock>
+                <port>UseZonalAccessibility</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Zonal_accessibility</modelBlock>
+                <port>UseZonalAccessibility</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Accessibility</modelBlock>
+                <port>ZoneMap</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Zonal_accessibility</modelBlock>
+                <port>ZoneMap</port>
+              </outputPort>
+            </connection>
+          </modelConnections>
+        </CompositeModelBlock>
+      </modelBlock>
+      <modelBlock library="CAModel.dll" name="MB_Land_use_demand">
+        <DemandBlock>
+          <LanduseDemands>
+            <value time="2002-Jan-01 00:00:00">
+              <vector>
+                <elem>243</elem>
+                <elem>20675</elem>
+                <elem>94832</elem>
+                <elem>9861</elem>
+                <elem>1330</elem>
+                <elem>24083</elem>
+                <elem>466</elem>
+              </vector>
+            </value>
+            <value time="2004-Jan-01 00:00:00">
+              <vector>
+                <elem>236</elem>
+                <elem>27213</elem>
+                <elem>89058</elem>
+                <elem>4225</elem>
+                <elem>1338</elem>
+                <elem>24050</elem>
+                <elem>615</elem>
+              </vector>
+            </value>
+            <value time="2005-Jan-01 00:00:00">
+              <vector>
+                <elem>232</elem>
+                <elem>35345</elem>
+                <elem>86699</elem>
+                <elem>2987</elem>
+                <elem>1342</elem>
+                <elem>24033</elem>
+                <elem>690</elem>
+              </vector>
+            </value>
+            <value time="2006-Jan-01 00:00:00">
+              <vector>
+                <elem>228</elem>
+                <elem>40477</elem>
+                <elem>83282</elem>
+                <elem>1864</elem>
+                <elem>1346</elem>
+                <elem>24017</elem>
+                <elem>797</elem>
+              </vector>
+            </value>
+            <value time="2007-Jan-01 00:00:00">
+              <vector>
+                <elem>224</elem>
+                <elem>43488</elem>
+                <elem>80395</elem>
+                <elem>1373</elem>
+                <elem>1350</elem>
+                <elem>24000</elem>
+                <elem>903</elem>
+              </vector>
+            </value>
+            <value time="2008-Jan-01 00:00:00">
+              <vector>
+                <elem>221</elem>
+                <elem>48500</elem>
+                <elem>76700</elem>
+                <elem>1086</elem>
+                <elem>1350</elem>
+                <elem>24100</elem>
+                <elem>1010</elem>
+              </vector>
+            </value>
+            <value time="2009-Jan-01 00:00:00">
+              <vector>
+                <elem>161</elem>
+                <elem>52340</elem>
+                <elem>72793</elem>
+                <elem>2828</elem>
+                <elem>1350</elem>
+                <elem>24066</elem>
+                <elem>813</elem>
+              </vector>
+            </value>
+            <value time="2011-Jan-01 00:00:00">
+              <vector>
+                <elem>42</elem>
+                <elem>57000</elem>
+                <elem>65000</elem>
+                <elem>2052</elem>
+                <elem>1350</elem>
+                <elem>24000</elem>
+                <elem>420</elem>
+              </vector>
+            </value>
+            <value time="2051-Jan-01 00:00:00">
+              <vector>
+                <elem>1500</elem>
+                <elem>77000</elem>
+                <elem>48000</elem>
+                <elem>200</elem>
+                <elem>3500</elem>
+                <elem>26000</elem>
+                <elem>2000</elem>
+              </vector>
+            </value>
+          </LanduseDemands>
+        </DemandBlock>
+      </modelBlock>
+      <modelBlock library="" name="MB_Indicators">
+        <CompositeModelBlock>
+          <modelBlocks>
+            <modelBlock library="Indicators.dll" name="MB_Initial_land_use">
+              <ByteRasterMapBlock>
+                <RasterMap>Data/DTAG_NIAESLU2002_200m_v03a_wgs84utm48n_t05.asc</RasterMap>
+                <Legend>Land use</Legend>
+              </ByteRasterMapBlock>
+            </modelBlock>
+            <modelBlock library="Indicators.dll" name="MB_Soil_sealing">
+              <DisturbanceIndicatorBlock>
+                <IndicatorStatus>1</IndicatorStatus>
+                <Threshold>0</Threshold>
+                <Operator>5</Operator>
+                <DisturbanceValue>
+                  <vector>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                  </vector>
+                </DisturbanceValue>
+              </DisturbanceIndicatorBlock>
+            </modelBlock>
+            <modelBlock library="Indicators.dll" name="MB_Soil_sealing_region">
+              <AccumulateFloatIndicatorToRegionBlock>
+                <IndicatorStatus>1</IndicatorStatus>
+              </AccumulateFloatIndicatorToRegionBlock>
+            </modelBlock>
+            <modelBlock library="Indicators.dll" name="MB_Urban_expansion">
+              <LanduseChangeIndicatorBlock>
+                <IndicatorStatus>1</IndicatorStatus>
+                <ResultValue>
+                  <vector>
+                    <elem>
+                      <vector>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                  </vector>
+                </ResultValue>
+              </LanduseChangeIndicatorBlock>
+            </modelBlock>
+            <modelBlock library="Indicators.dll" name="MB_Urban_expansion_region">
+              <RegionContingencyByteIndicatorBlock>
+                <IndicatorStatus>1</IndicatorStatus>
+                <ValuesToCount>
+                  <vector>
+                    <elem>0</elem>
+                    <elem>1</elem>
+                    <elem>2</elem>
+                  </vector>
+                </ValuesToCount>
+              </RegionContingencyByteIndicatorBlock>
+            </modelBlock>
+            <modelBlock library="Indicators.dll" name="MB_Forested_areas">
+              <LanduseChangeIndicatorBlock>
+                <IndicatorStatus>1</IndicatorStatus>
+                <ResultValue>
+                  <vector>
+                    <elem>
+                      <vector>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                  </vector>
+                </ResultValue>
+              </LanduseChangeIndicatorBlock>
+            </modelBlock>
+            <modelBlock library="Indicators.dll" name="MB_Forested_areas_region">
+              <RegionContingencyByteIndicatorBlock>
+                <IndicatorStatus>1</IndicatorStatus>
+                <ValuesToCount>
+                  <vector>
+                    <elem>1</elem>
+                    <elem>2</elem>
+                    <elem>3</elem>
+                  </vector>
+                </ValuesToCount>
+              </RegionContingencyByteIndicatorBlock>
+            </modelBlock>
+            <modelBlock library="Indicators.dll" name="MB_Abandoned_land">
+              <LanduseChangeIndicatorBlock>
+                <IndicatorStatus>1</IndicatorStatus>
+                <ResultValue>
+                  <vector>
+                    <elem>
+                      <vector>
+                        <elem>0</elem>
+                        <elem>1</elem>
+                        <elem>1</elem>
+                        <elem>1</elem>
+                        <elem>1</elem>
+                        <elem>1</elem>
+                        <elem>1</elem>
+                        <elem>1</elem>
+                        <elem>1</elem>
+                        <elem>1</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>2</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>2</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>2</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>2</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>2</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>2</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>2</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>2</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                    <elem>
+                      <vector>
+                        <elem>2</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                        <elem>0</elem>
+                      </vector>
+                    </elem>
+                  </vector>
+                </ResultValue>
+              </LanduseChangeIndicatorBlock>
+            </modelBlock>
+            <modelBlock library="Indicators.dll" name="MB_Abandoned_land_region">
+              <RegionContingencyByteIndicatorBlock>
+                <IndicatorStatus>1</IndicatorStatus>
+                <ValuesToCount>
+                  <vector>
+                    <elem>0</elem>
+                    <elem>1</elem>
+                    <elem>2</elem>
+                  </vector>
+                </ValuesToCount>
+              </RegionContingencyByteIndicatorBlock>
+            </modelBlock>
+            <modelBlock library="Indicators.dll" name="MB_Urban_clusters">
+              <ClusterIndicatorBlock>
+                <IndicatorStatus>1</IndicatorStatus>
+                <Obstacle>
+                  <vector>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                  </vector>
+                </Obstacle>
+                <MinimumClusterRadius>1</MinimumClusterRadius>
+                <IncludeLanduse>
+                  <vector>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                  </vector>
+                </IncludeLanduse>
+              </ClusterIndicatorBlock>
+            </modelBlock>
+            <modelBlock library="Indicators.dll" name="MB_Distance_from_residential_to_work">
+              <DistanceIndicatorBlock>
+                <IndicatorStatus>1</IndicatorStatus>
+                <IsVisible>
+                  <vector>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                  </vector>
+                </IsVisible>
+                <Obstacle>
+                  <vector>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                  </vector>
+                </Obstacle>
+                <MinimumClusterRadius>0</MinimumClusterRadius>
+                <TargetLanduse>
+                  <vector>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                  </vector>
+                </TargetLanduse>
+              </DistanceIndicatorBlock>
+            </modelBlock>
+            <modelBlock library="Indicators.dll" name="MB_Distance_from_residential_to_work_region">
+              <AverageFloatIndicatorToRegionBlock>
+                <IndicatorStatus>1</IndicatorStatus>
+              </AverageFloatIndicatorToRegionBlock>
+            </modelBlock>
+            <modelBlock library="Indicators.dll" name="MB_Distance_from_residential_to_recreation">
+              <DistanceIndicatorBlock>
+                <IndicatorStatus>1</IndicatorStatus>
+                <IsVisible>
+                  <vector>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                  </vector>
+                </IsVisible>
+                <Obstacle>
+                  <vector>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                  </vector>
+                </Obstacle>
+                <MinimumClusterRadius>0</MinimumClusterRadius>
+                <TargetLanduse>
+                  <vector>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                    <elem>0</elem>
+                  </vector>
+                </TargetLanduse>
+              </DistanceIndicatorBlock>
+            </modelBlock>
+            <modelBlock library="Indicators.dll" name="MB_Distance_from_residential_to_recreation_region">
+              <AverageFloatIndicatorToRegionBlock>
+                <IndicatorStatus>1</IndicatorStatus>
+              </AverageFloatIndicatorToRegionBlock>
+            </modelBlock>
+            <modelBlock library="Indicators.dll" name="MB_User_defined_indicators">
+              <CompositeModelBlock>
+                <modelBlocks/>
+                <modelConnections/>
+              </CompositeModelBlock>
+            </modelBlock>
+          </modelBlocks>
+          <modelConnections>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Soil_sealing_region</modelBlock>
+                <port>IndicatorMap</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Soil_sealing</modelBlock>
+                <port>DisturbanceMap</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Urban_expansion</modelBlock>
+                <port>PreviousLanduseMap</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Initial_land_use</modelBlock>
+                <port>RasterMap</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Urban_expansion_region</modelBlock>
+                <port>IndicatorMap</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Urban_expansion</modelBlock>
+                <port>ResultMap</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Forested_areas</modelBlock>
+                <port>PreviousLanduseMap</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Initial_land_use</modelBlock>
+                <port>RasterMap</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Forested_areas_region</modelBlock>
+                <port>IndicatorMap</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Forested_areas</modelBlock>
+                <port>ResultMap</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Abandoned_land</modelBlock>
+                <port>PreviousLanduseMap</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Initial_land_use</modelBlock>
+                <port>RasterMap</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Abandoned_land_region</modelBlock>
+                <port>IndicatorMap</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Abandoned_land</modelBlock>
+                <port>ResultMap</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Distance_from_residential_to_work_region</modelBlock>
+                <port>IndicatorMap</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Distance_from_residential_to_work</modelBlock>
+                <port>DistanceMap</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_Distance_from_residential_to_recreation_region</modelBlock>
+                <port>IndicatorMap</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Distance_from_residential_to_recreation</modelBlock>
+                <port>DistanceMap</port>
+              </outputPort>
+            </connection>
+            <connection>
+              <inputPort>
+                <modelBlock>MB_User_defined_indicators</modelBlock>
+                <port>InitialLanduseMap</port>
+              </inputPort>
+              <outputPort>
+                <modelBlock>MB_Initial_land_use</modelBlock>
+                <port>RasterMap</port>
+              </outputPort>
+            </connection>
+          </modelConnections>
+        </CompositeModelBlock>
+      </modelBlock>
+    </modelBlocks>
+    <modelConnections>
+      <connection>
+        <inputPort>
+          <modelBlock>MB_Land_use_model</modelBlock>
+          <port>Neighbourhood.RegionMap</port>
+        </inputPort>
+        <outputPort>
+          <modelBlock>MB_Regions</modelBlock>
+          <port>RegionMap</port>
+        </outputPort>
+      </connection>
+      <connection>
+        <inputPort>
+          <modelBlock>MB_Land_use_model</modelBlock>
+          <port>Suitability.RegionMap</port>
+        </inputPort>
+        <outputPort>
+          <modelBlock>MB_Regions</modelBlock>
+          <port>RegionMap</port>
+        </outputPort>
+      </connection>
+      <connection>
+        <inputPort>
+          <modelBlock>MB_Land_use_model</modelBlock>
+          <port>Zoning.RegionMap</port>
+        </inputPort>
+        <outputPort>
+          <modelBlock>MB_Regions</modelBlock>
+          <port>RegionMap</port>
+        </outputPort>
+      </connection>
+      <connection>
+        <inputPort>
+          <modelBlock>MB_Land_use_model</modelBlock>
+          <port>Infrastructure_location.NetworkLayers</port>
+        </inputPort>
+        <outputPort>
+          <modelBlock>MB_Infrastructure</modelBlock>
+          <port>NetworkLayers</port>
+        </outputPort>
+      </connection>
+      <connection>
+        <inputPort>
+          <modelBlock>MB_Land_use_model</modelBlock>
+          <port>Infrastructure_location.AccTypePropertyIndex</port>
+        </inputPort>
+        <outputPort>
+          <modelBlock>MB_Infrastructure</modelBlock>
+          <port>AccTypePropertyIndex</port>
+        </outputPort>
+      </connection>
+      <connection>
+        <inputPort>
+          <modelBlock>MB_Land_use_model</modelBlock>
+          <port>Total_potential.RegionMap</port>
+        </inputPort>
+        <outputPort>
+          <modelBlock>MB_Regions</modelBlock>
+          <port>RegionMap</port>
+        </outputPort>
+      </connection>
+      <connection>
+        <inputPort>
+          <modelBlock>MB_Land_use_model</modelBlock>
+          <port>Land_use.RegionMap</port>
+        </inputPort>
+        <outputPort>
+          <modelBlock>MB_Regions</modelBlock>
+          <port>RegionMap</port>
+        </outputPort>
+      </connection>
+      <connection>
+        <inputPort>
+          <modelBlock>MB_Land_use_model</modelBlock>
+          <port>Land_use.LanduseDemands</port>
+        </inputPort>
+        <outputPort>
+          <modelBlock>MB_Land_use_demand</modelBlock>
+          <port>LanduseDemands</port>
+        </outputPort>
+      </connection>
+      <connection>
+        <inputPort>
+          <modelBlock>MB_Land_use_model</modelBlock>
+          <port>Land_use_count.RegionMap</port>
+        </inputPort>
+        <outputPort>
+          <modelBlock>MB_Regions</modelBlock>
+          <port>RegionMap</port>
+        </outputPort>
+      </connection>
+      <connection>
+        <inputPort>
+          <modelBlock>MB_Land_use_model</modelBlock>
+          <port>Land_use_count.RegionNames</port>
+        </inputPort>
+        <outputPort>
+          <modelBlock>MB_Region_names</modelBlock>
+          <port>RegionNames</port>
+        </outputPort>
+      </connection>
+      <connection>
+        <inputPort>
+          <modelBlock>MB_Land_use_demand</modelBlock>
+          <port>NrOfVacantsFunctionsFeatures</port>
+        </inputPort>
+        <outputPort>
+          <modelBlock>MB_Land_use_model</modelBlock>
+          <port>Land_use_parameters.NrOfVacantsFunctionsFeatures</port>
+        </outputPort>
+      </connection>
+      <connection>
+        <inputPort>
+          <modelBlock>MB_Indicators</modelBlock>
+          <port>Soil_sealing.MaskMap</port>
+        </inputPort>
+        <outputPort>
+          <modelBlock>MB_Land_use_model</modelBlock>
+          <port>Land_use.LanduseMap</port>
+        </outputPort>
+      </connection>
+      <connection>
+        <inputPort>
+          <modelBlock>MB_Indicators</modelBlock>
+          <port>Soil_sealing.LanduseMap</port>
+        </inputPort>
+        <outputPort>
+          <modelBlock>MB_Land_use_model</modelBlock>
+          <port>Land_use.LanduseMap</port>
+        </outputPort>
+      </connection>
+      <connection>
+        <inputPort>
+          <modelBlock>MB_Indicators</modelBlock>
+          <port>Soil_sealing_region.RegionMap</port>
+        </inputPort>
+        <outputPort>
+          <modelBlock>MB_Regions</modelBlock>
+          <port>RegionMap</port>
+        </outputPort>
+      </connection>
+      <connection>
+        <inputPort>
+          <modelBlock>MB_Indicators</modelBlock>
+          <port>Urban_expansion.LanduseMap</port>
+        </inputPort>
+        <outputPort>
+          <modelBlock>MB_Land_use_model</modelBlock>
+          <port>Land_use.LanduseMap</port>
+        </outputPort>
+      </connection>
+      <connection>
+        <inputPort>
+          <modelBlock>MB_Indicators</modelBlock>
+          <port>Urban_expansion_region.RegionMap</port>
+        </inputPort>
+        <outputPort>
+          <modelBlock>MB_Regions</modelBlock>
+          <port>RegionMap</port>
+        </outputPort>
+      </connection>
+      <connection>
+        <inputPort>
+          <modelBlock>MB_Indicators</modelBlock>
+          <port>Forested_areas.LanduseMap</port>
+        </inputPort>
+        <outputPort>
+          <modelBlock>MB_Land_use_model</modelBlock>
+          <port>Land_use.LanduseMap</port>
+        </outputPort>
+      </connection>
+      <connection>
+        <inputPort>
+          <modelBlock>MB_Indicators</modelBlock>
+          <port>Forested_areas_region.RegionMap</port>
+        </inputPort>
+        <outputPort>
+          <modelBlock>MB_Regions</modelBlock>
+          <port>RegionMap</port>
+        </outputPort>
+      </connection>
+      <connection>
+        <inputPort>
+          <modelBlock>MB_Indicators</modelBlock>
+          <port>Abandoned_land.LanduseMap</port>
+        </inputPort>
+        <outputPort>
+          <modelBlock>MB_Land_use_model</modelBlock>
+          <port>Land_use.LanduseMap</port>
+        </outputPort>
+      </connection>
+      <connection>
+        <inputPort>
+          <modelBlock>MB_Indicators</modelBlock>
+          <port>Abandoned_land_region.RegionMap</port>
+        </inputPort>
+        <outputPort>
+          <modelBlock>MB_Regions</modelBlock>
+          <port>RegionMap</port>
+        </outputPort>
+      </connection>
+      <connection>
+        <inputPort>
+          <modelBlock>MB_Indicators</modelBlock>
+          <port>Urban_clusters.LanduseMap</port>
+        </inputPort>
+        <outputPort>
+          <modelBlock>MB_Land_use_model</modelBlock>
+          <port>Land_use.LanduseMap</port>
+        </outputPort>
+      </connection>
+      <connection>
+        <inputPort>
+          <modelBlock>MB_Indicators</modelBlock>
+          <port>Urban_clusters.InfrastructureCombination</port>
+        </inputPort>
+        <outputPort>
+          <modelBlock>MB_Land_use_model</modelBlock>
+          <port>Infrastructure_location.InfrastructureCombinationMap</port>
+        </outputPort>
+      </connection>
+      <connection>
+        <inputPort>
+          <modelBlock>MB_Indicators</modelBlock>
+          <port>Distance_from_residential_to_work.LanduseMap</port>
+        </inputPort>
+        <outputPort>
+          <modelBlock>MB_Land_use_model</modelBlock>
+          <port>Land_use.LanduseMap</port>
+        </outputPort>
+      </connection>
+      <connection>
+        <inputPort>
+          <modelBlock>MB_Indicators</modelBlock>
+          <port>Distance_from_residential_to_work.InfrastructureCombination</port>
+        </inputPort>
+        <outputPort>
+          <modelBlock>MB_Land_use_model</modelBlock>
+          <port>Infrastructure_location.InfrastructureCombinationMap</port>
+        </outputPort>
+      </connection>
+      <connection>
+        <inputPort>
+          <modelBlock>MB_Indicators</modelBlock>
+          <port>Distance_from_residential_to_work_region.RegionMap</port>
+        </inputPort>
+        <outputPort>
+          <modelBlock>MB_Regions</modelBlock>
+          <port>RegionMap</port>
+        </outputPort>
+      </connection>
+      <connection>
+        <inputPort>
+          <modelBlock>MB_Indicators</modelBlock>
+          <port>Distance_from_residential_to_recreation.LanduseMap</port>
+        </inputPort>
+        <outputPort>
+          <modelBlock>MB_Land_use_model</modelBlock>
+          <port>Land_use.LanduseMap</port>
+        </outputPort>
+      </connection>
+      <connection>
+        <inputPort>
+          <modelBlock>MB_Indicators</modelBlock>
+          <port>Distance_from_residential_to_recreation.InfrastructureCombination</port>
+        </inputPort>
+        <outputPort>
+          <modelBlock>MB_Land_use_model</modelBlock>
+          <port>Infrastructure_location.InfrastructureCombinationMap</port>
+        </outputPort>
+      </connection>
+      <connection>
+        <inputPort>
+          <modelBlock>MB_Indicators</modelBlock>
+          <port>Distance_from_residential_to_recreation_region.RegionMap</port>
+        </inputPort>
+        <outputPort>
+          <modelBlock>MB_Regions</modelBlock>
+          <port>RegionMap</port>
+        </outputPort>
+      </connection>
+      <connection>
+        <inputPort>
+          <modelBlock>MB_Indicators</modelBlock>
+          <port>User_defined_indicators.RegionMap</port>
+        </inputPort>
+        <outputPort>
+          <modelBlock>MB_Regions</modelBlock>
+          <port>RegionMap</port>
+        </outputPort>
+      </connection>
+      <connection>
+        <inputPort>
+          <modelBlock>MB_Indicators</modelBlock>
+          <port>User_defined_indicators.LanduseMap</port>
+        </inputPort>
+        <outputPort>
+          <modelBlock>MB_Land_use_model</modelBlock>
+          <port>Land_use.LanduseMap</port>
+        </outputPort>
+      </connection>
+      <connection>
+        <inputPort>
+          <modelBlock>MB_Indicators</modelBlock>
+          <port>User_defined_indicators.NrOfVacantsFunctionsFeatures</port>
+        </inputPort>
+        <outputPort>
+          <modelBlock>MB_Land_use_model</modelBlock>
+          <port>Land_use_parameters.NrOfVacantsFunctionsFeatures</port>
+        </outputPort>
+      </connection>
+      <connection>
+        <inputPort>
+          <modelBlock>MB_Indicators</modelBlock>
+          <port>User_defined_indicators.AccessibilityTypeNames</port>
+        </inputPort>
+        <outputPort>
+          <modelBlock>MB_Land_use_model</modelBlock>
+          <port>Land_use_parameters.AccessibilityTypeNames</port>
+        </outputPort>
+      </connection>
+      <connection>
+        <inputPort>
+          <modelBlock>MB_Indicators</modelBlock>
+          <port>User_defined_indicators.InfrastructureCombination</port>
+        </inputPort>
+        <outputPort>
+          <modelBlock>MB_Land_use_model</modelBlock>
+          <port>Infrastructure_location.InfrastructureCombinationMap</port>
+        </outputPort>
+      </connection>
+    </modelConnections>
+    <scenarios>
+      <ActiveScenario>Baseline</ActiveScenario>
+      <MasterScenarios>
+        <masterScenario name="Baseline" readOnly="0">
+          <description>Initial setup</description>
+          <subScenario name="Baseline"/>
+          <subScenario name="Baseline"/>
+          <subScenario name="Baseline"/>
+        </masterScenario>
+        <masterScenario name="BAU" readOnly="0">
+          <description></description>
+          <subScenario name="Baseline"/>
+          <subScenario name="Baseline"/>
+          <subScenario name="Baseline"/>
+        </masterScenario>
+      </MasterScenarios>
+      <ParameterGroups>
+        <ParameterGroup name="Land use demand">
+          <Parameter>
+            <modelBlock>MB_Land_use_demand</modelBlock>
+            <port>LanduseDemands</port>
+          </Parameter>
+          <SubScenarios>
+            <subScenario baseline="1" name="Baseline" readOnly="0">
+              <description>Initial setup</description>
+            </subScenario>
+            <subScenario baseline="0" name="dobuleRice" readOnly="0">
+              <description>Shift back from triple rice to double rice</description>
+              <delta id="0"/>
+            </subScenario>
+            <subScenario baseline="0" name="urbanization" readOnly="0">
+              <description>high urban area, reduction in 2 and 3 rice</description>
+              <delta id="1"/>
+            </subScenario>
+            <subScenario baseline="0" name="otherLU" readOnly="0">
+              <description>High shrimp, orchard, aquaculture</description>
+              <delta id="2"/>
+            </subScenario>
+          </SubScenarios>
+        </ParameterGroup>
+        <ParameterGroup name="Zoning">
+          <Parameter>
+            <modelBlock>MB_Zoning</modelBlock>
+            <port>ZoningConfiguration</port>
+          </Parameter>
+          <SubScenarios>
+            <subScenario baseline="1" name="Baseline" readOnly="0">
+              <description>Initial setup</description>
+            </subScenario>
+          </SubScenarios>
+        </ParameterGroup>
+        <ParameterGroup name="Infrastructure">
+          <Parameter>
+            <modelBlock>MB_Infrastructure</modelBlock>
+            <port>NetworkLayers</port>
+          </Parameter>
+          <Parameter>
+            <modelBlock>MB_Infrastructure</modelBlock>
+            <port>NetworkDeltas</port>
+          </Parameter>
+          <SubScenarios>
+            <subScenario baseline="1" name="Baseline" readOnly="0">
+              <description>Initial setup</description>
+            </subScenario>
+          </SubScenarios>
+        </ParameterGroup>
+      </ParameterGroups>
+      <Deltas>
+        <delta id="0">
+          <modelBlock>MB_Land_use_demand</modelBlock>
+          <port>LanduseDemands</port>
+          <data>
+            <value time="2002-Jan-01 00:00:00">
+              <vector>
+                <elem>243</elem>
+                <elem>20675</elem>
+                <elem>94832</elem>
+                <elem>9861</elem>
+                <elem>934</elem>
+                <elem>24430</elem>
+                <elem>466</elem>
+              </vector>
+            </value>
+            <value time="2007-Jan-01 00:00:00">
+              <vector>
+                <elem>18</elem>
+                <elem>31000</elem>
+                <elem>91000</elem>
+                <elem>3100</elem>
+                <elem>1350</elem>
+                <elem>24000</elem>
+                <elem>527</elem>
+              </vector>
+            </value>
+            <value time="2011-Jan-01 00:00:00">
+              <vector>
+                <elem>42</elem>
+                <elem>57000</elem>
+                <elem>65000</elem>
+                <elem>2800</elem>
+                <elem>1350</elem>
+                <elem>24000</elem>
+                <elem>420</elem>
+              </vector>
+            </value>
+            <value time="2030-Jan-01 00:00:00">
+              <vector>
+                <elem>1400</elem>
+                <elem>55000</elem>
+                <elem>70000</elem>
+                <elem>1000</elem>
+                <elem>3000</elem>
+                <elem>25000</elem>
+                <elem>800</elem>
+              </vector>
+            </value>
+          </data>
+        </delta>
+        <delta id="1">
+          <modelBlock>MB_Land_use_demand</modelBlock>
+          <port>LanduseDemands</port>
+          <data>
+            <value time="2002-Jan-01 00:00:00">
+              <vector>
+                <elem>243</elem>
+                <elem>20675</elem>
+                <elem>94832</elem>
+                <elem>9861</elem>
+                <elem>934</elem>
+                <elem>24430</elem>
+                <elem>466</elem>
+              </vector>
+            </value>
+            <value time="2007-Jan-01 00:00:00">
+              <vector>
+                <elem>18</elem>
+                <elem>31000</elem>
+                <elem>91000</elem>
+                <elem>3100</elem>
+                <elem>1350</elem>
+                <elem>24000</elem>
+                <elem>527</elem>
+              </vector>
+            </value>
+            <value time="2011-Jan-01 00:00:00">
+              <vector>
+                <elem>42</elem>
+                <elem>57000</elem>
+                <elem>65000</elem>
+                <elem>2800</elem>
+                <elem>1350</elem>
+                <elem>24000</elem>
+                <elem>420</elem>
+              </vector>
+            </value>
+            <value time="2030-Jan-01 00:00:00">
+              <vector>
+                <elem>1000</elem>
+                <elem>67000</elem>
+                <elem>52000</elem>
+                <elem>1000</elem>
+                <elem>10000</elem>
+                <elem>25000</elem>
+                <elem>800</elem>
+              </vector>
+            </value>
+          </data>
+        </delta>
+        <delta id="2">
+          <modelBlock>MB_Land_use_demand</modelBlock>
+          <port>LanduseDemands</port>
+          <data>
+            <value time="2002-Jan-01 00:00:00">
+              <vector>
+                <elem>243</elem>
+                <elem>20675</elem>
+                <elem>94832</elem>
+                <elem>9861</elem>
+                <elem>934</elem>
+                <elem>24430</elem>
+                <elem>466</elem>
+              </vector>
+            </value>
+            <value time="2007-Jan-01 00:00:00">
+              <vector>
+                <elem>18</elem>
+                <elem>31000</elem>
+                <elem>91000</elem>
+                <elem>3100</elem>
+                <elem>1350</elem>
+                <elem>24000</elem>
+                <elem>527</elem>
+              </vector>
+            </value>
+            <value time="2011-Jan-01 00:00:00">
+              <vector>
+                <elem>42</elem>
+                <elem>57000</elem>
+                <elem>65000</elem>
+                <elem>2800</elem>
+                <elem>1350</elem>
+                <elem>24000</elem>
+                <elem>420</elem>
+              </vector>
+            </value>
+            <value time="2030-Jan-01 00:00:00">
+              <vector>
+                <elem>7000</elem>
+                <elem>60000</elem>
+                <elem>47500</elem>
+                <elem>1000</elem>
+                <elem>5000</elem>
+                <elem>29000</elem>
+                <elem>6000</elem>
+              </vector>
+            </value>
+          </data>
+        </delta>
+      </Deltas>
+    </scenarios>
+  </model>
+
+</GeonamicaSimulation>

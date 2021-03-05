@@ -1,0 +1,12 @@
+Version 2
+NClasses 3
+Palette
+255	255	255
+128	128	128
+000	000	000
+StateOrderColor 0
+LegendType 0
+No dike
+Semi dike
+High dike
+ShowUnit=1

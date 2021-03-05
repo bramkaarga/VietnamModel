@@ -1,0 +1,16 @@
+Version 2
+NClasses 5
+Palette
+000	255	255
+048	191	191
+096	128	128
+144	064	064
+192	000	000
+StateOrderColor 0
+LegendType 0
+No data
+Thionic fluvisols
+Eutric fluvisols
+Acrisols
+Gleysols
+ShowUnit=1

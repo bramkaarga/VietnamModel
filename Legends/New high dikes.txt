@@ -1,0 +1,23 @@
+Version 2
+NClasses 11
+Palette
+000	255	000
+142	255	000
+180	255	000
+209	255	000
+233	255	000
+255	254	002
+255	228	026
+255	199	035
+255	168	041
+255	127	040
+255	000	000
+StateOrderColor 0
+LegendType 1
+Decimals 2
+DisplayMin 0
+DisplayMax 1
+StateLabel 4
+StateOrder 0
+StateScale 0
+ShowUnit=1
