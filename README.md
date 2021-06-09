@@ -1,5 +1,7 @@
 # VietnamModel
-Accompanying codes for journal article 'Accounting for multisectoral dynamics in supporting equitable adaptation planning: A case study on the rice agriculture in the Vietnam Mekong Delta', without protected data. 
+Accompanying codes for journal article:
+
+Jafino, B. A., Kwakkel, J., Klijn, F., Dung, N. V., van Delden, H., Haasnoot, M., & Sutanudjaja, E. (2021). Accounting for multisectoral dynamics in supporting equitable adaptation planning: A case study on the rice agriculture in the Vietnam Mekong Delta. Earth's Future, 9(5), e2020EF001939. doi:https://doi.org/10.1029/2020EF001939.
 
 EF-ModelRun.ipynb contains main codes to run the model. EF-Analysis.ipynb contains codes to generate figures in the manuscript. Simulation results are provided in the results folder. 
 
